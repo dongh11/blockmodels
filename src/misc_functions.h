@@ -49,7 +49,7 @@ vec vech(const mat & M)
 {
     unsigned int n=M.n_rows;
     vec v(n*(n+1)/2);
-    
+
     unsigned int k=0;
     for(unsigned int i=0; i<n; i++)
     {
@@ -61,12 +61,12 @@ vec vech(const mat & M)
     return(v);
 }
 
-inline 
+inline
 mat unvech(const vec & v)
 {
     unsigned int n= (((sqrt(1.0+8*v.n_elem)+1)-1.0)/2);
     mat M(n,n);
-    
+
     unsigned int k=0;
     for(unsigned int i=0; i<n; i++)
     {
@@ -130,6 +130,7 @@ cube apply_matrix_on_tubes(mat & M, cube & C)
     cube C2(C.n_rows, C.n_cols, M.n_rows);
 
     C2.zeros();
+    // set all elements to zero
 
     for(unsigned int k1=0; k1<M.n_rows; k1++)
         for(unsigned int k2=0; k2<M.n_cols; k2++)
